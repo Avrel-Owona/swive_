@@ -8,6 +8,6 @@ export interface registerForm {
 }
 
 export interface loginForm {
-    firstname : string,
     email : string
+    password_min: string
 }

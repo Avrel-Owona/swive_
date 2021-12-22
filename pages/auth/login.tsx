@@ -8,7 +8,7 @@ import {loginForm} from '../../_types/auth_types'
 
 const Login = () => {
     const {register, handleSubmit, formState:{errors}} = useForm<loginForm>({
-        resolver : yupResolver(loginSchema)
+        resolver : yupResolver(loginSchema),
     })
     const onLogin = (data) => {
         console.log(data)
