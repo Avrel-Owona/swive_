@@ -41,6 +41,7 @@ const Login = () => {
                             className="input-form mt-2 bg-custom-grey focus:bg-custom-grey focus:ring-transparent focus:border-transparent border-gray-300 focus:border-gray-300 text-sm"
                             type="password"
                             name='password_min'
+                            {...register('password_min')}
                         />
                         <small className="text-red-500 text-xs">
                             {errors.password_min?.message}
