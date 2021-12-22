@@ -6,3 +6,8 @@ export interface registerForm {
     password : string,
     confirm_password : string,
 }
+
+export interface loginForm {
+    firstname : string,
+    email : string
+}

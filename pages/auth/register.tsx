@@ -10,10 +10,9 @@ const Register = () => {
   const {register, handleSubmit, formState:{errors}} = useForm<registerForm>({
     resolver: yupResolver(registerSchema)
   })
-const onRegister = (data) => {
+  const onRegister = (data) => {
     console.log(data)
-}
-
+  }
 
   return (
     <div className="flex w-screen h-screen z-10">

@@ -8,7 +8,8 @@ let schemas = {
         /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/,
         "Should have at least 8 characters, with one capital letter and one number."
     ),
-    confirm_password : yup.string().oneOf([yup.ref('password'), null], 'Password must match')
+    password_min:yup.string().required('You must provide your password'),
+    confirm_password : yup.string().oneOf([yup.ref('password'), null], 'Password must match'),
 }
 const  {
     firstname,
@@ -16,7 +17,8 @@ const  {
     email,
     phone,
     password,
-    confirm_password
+    confirm_password,
+    password_min,
 } = schemas
 
 export const registerSchema = yup.object().shape({
@@ -26,4 +28,9 @@ export const registerSchema = yup.object().shape({
     phone,
     password,
     confirm_password,
+})
+
+export const loginSchema = yup.object().shape({
+    email,
+    password_min,
 })
