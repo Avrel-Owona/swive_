@@ -1,8 +1,9 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import Router from 'next/router'
-import {useState} from "react";
+import {useState, useMemo} from "react";
 import NProgress from 'nprogress'
+import {userContext} from "../context/userContext";
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(false)
@@ -14,10 +15,14 @@ function MyApp({ Component, pageProps }) {
         setLoading(false)
         NProgress.done()
     })
+    const [user, setUser] = useState(null)
+    const userValue = useMemo(() => ({ user, setUser }), [ user, setUser])
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+      <userContext.Provider value={{user, setUser}}>
+          <Layout>
+              <Component {...pageProps} />
+          </Layout>
+      </userContext.Provider>
   );
 }
 export default MyApp;
